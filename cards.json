@@ -3,33 +3,74 @@
 
     [{
 
-    "front": "this is a question",
-    "back": "answer"
+    "front": "What is Tyler's cat's name?",
+    "back": "Hal"
 },
 
 {
-    "front": "this is another question",
-    "back": "answer"
+    "front": "What state is Tyler from?",
+    "back": "New York"
 
-    }],
+},
+
+{
+    "front": "What College did Tyler go to?",
+    "back": "University of South Carolina"
+ },
+
+{
+    "front": "What is Tyler's favorite sport?",
+    "back": "Soccer"
+},  
+
+{
+    "front": "What is Tyler's favorite soccer team?",
+    "back": "Tottemham Hotspur"
+
+}],
 
 "cloze": 
 
     [{
     
-    "fullText": "George Washington was the first president of the US",
+    "fullText": "Tyler's cat's name is Hal",
     "partial": "",
-    "cloze": "George Washington"
+    "cloze": "Hal"
     
 },
 
 {
     
-    "fullText": "this is the second entire question",
+    "fullText": "Tyler is from New York",
     "partial": "",
-    "cloze": "this"
+    "cloze": "New York"
     
-    }]
+},
+
+
+{
+    
+    "fullText": "Tyler went to the University of South Carolina",
+    "partial": "",
+    "cloze": "South Carolina"
+    
+},
+
+{
+    
+    "fullText": "Tyler's favorite sport is Soccer",
+    "partial": "",
+    "cloze": "Soccer"
+    
+},
+
+{
+    
+    "fullText": "Tyler's favorite Soccer team is Tottenham Hotspur",
+    "partial": "",
+    "cloze": "Tottenham Hotspur"
+    
+}]
 }
 
 

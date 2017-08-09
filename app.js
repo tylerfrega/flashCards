@@ -4,7 +4,7 @@ var cards = require('./cards.json');
 var BasicCard = require('./BasicCard');
 var ClozeCard = require('./ClozeCard');
 var questionNumber = 0;
-// var contents = fs.readFile("cards.json");
+
 
 
 
@@ -41,16 +41,23 @@ var questionNumber = 0;
                 message: newBasicCard.front
                 }
 
-    ]).then(function(answer){
-        if(answer.question === newBasicCard.back){
-            console.log('correct!');
-            questionNumber++;
-            choseBasic();
-        }
-    })
+        ]).then(function(answer){
+            if(answer.question === newBasicCard.back){
+                console.log('correct!');
+                questionNumber++;
+                choseBasic();
+            }else{
+                console.log('incorrect!');
+                questionNumber++
+                choseBasic();
+            }
+        })
     }
  }
 
+
+
+ 
  function choseCloze(){
 
     if(questionNumber < cards.cloze.length){
@@ -65,13 +72,17 @@ var questionNumber = 0;
                 message: newClozeCard.partial
                 }
 
-    ]).then(function(answer){
-        if(answer.question === newClozeCard.cloze){
-            console.log('correct!');
-            questionNumber++;
-            choseCloze();
-        }
-    })
+        ]).then(function(answer){
+            if(answer.question === newClozeCard.cloze){
+                console.log('correct!');
+                questionNumber++;
+                choseCloze();
+            }else{
+                console.log('incorrect!');
+                questionNumber++
+                choseCloze();
+            }
+        })
     }
  }
  
