@@ -3,6 +3,9 @@ var fs = require("fs");
 var cards = require('./cards.json');
 var BasicCard = require('./BasicCard');
 var ClozeCard = require('./ClozeCard');
+
+var correctAnswers = 0;
+var incorrectAnswers = 0;
 var questionNumber = 0;
 
 
@@ -11,7 +14,7 @@ var questionNumber = 0;
  inquirer.prompt([
             {
               name: "welcome",
-              type: "rawlist",
+              type: "list",
               message: "What kind of cards would you like to use",
               choices: ["Basic", "Cloze"]
 
@@ -22,7 +25,7 @@ var questionNumber = 0;
      }else{
          choseCloze();
      }
- })
+ });
 
 
 
@@ -45,13 +48,21 @@ var questionNumber = 0;
             if(answer.question === newBasicCard.back){
                 console.log('correct!');
                 questionNumber++;
+                correctAnswers++
                 choseBasic();
             }else{
                 console.log('incorrect!');
                 questionNumber++
+                incorrectAnswers++
                 choseBasic();
             }
-        })
+        });
+    }else{
+        console.log(`
+-----------------------------------------------------------------------
+Thats it, you got ${correctAnswers} right and ${incorrectAnswers} wrong
+-----------------------------------------------------------------------
+        `)
     }
  }
 
@@ -76,13 +87,21 @@ var questionNumber = 0;
             if(answer.question === newClozeCard.cloze){
                 console.log('correct!');
                 questionNumber++;
+                correctAnswers++;
                 choseCloze();
             }else{
                 console.log('incorrect!');
-                questionNumber++
+                questionNumber++;
+                incorrectAnswers++;
                 choseCloze();
             }
         })
+    }else{
+        console.log(`
+-------------------
+Thats it, you got ${correctAnswers} right and ${incorrectAnswers} wrong
+-------------------
+        `);
     }
  }
  
