@@ -2,6 +2,7 @@ var inquirer = require("inquirer");
 var fs = require("fs");
 var cards = require('./cards.json');
 var BasicCard = require('./BasicCard');
+var ClozeCard = require('./ClozeCard');
 var questionNumber = 0;
 // var contents = fs.readFile("cards.json");
 
@@ -49,3 +50,28 @@ var questionNumber = 0;
     })
     }
  }
+
+ function choseCloze(){
+
+    if(questionNumber < cards.cloze.length){
+
+    var newClozeCard = new ClozeCard(cards.cloze[questionNumber].fullText, cards.cloze[questionNumber].cloze);
+            
+        inquirer.prompt([
+
+               {
+                name: "question",
+                type: "input",
+                message: newClozeCard.partial
+                }
+
+    ]).then(function(answer){
+        if(answer.question === newClozeCard.cloze){
+            console.log('correct!');
+            questionNumber++;
+            choseCloze();
+        }
+    })
+    }
+ }
+ 

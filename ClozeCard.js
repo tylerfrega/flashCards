@@ -1,12 +1,8 @@
-function ClozeCard(text, cloze){   
-    this.text = text,
-    this.cloze = cloze
+function ClozeCard(fullText, cloze){   
+    this.fullText = fullText,
+    this.cloze = cloze,
+    this.partial = this.fullText.replace(this.cloze, '...');
 }
-
-
-
-
-
 
 
 

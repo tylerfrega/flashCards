@@ -10,8 +10,29 @@
 {
     "front": "this is another question",
     "back": "answer"
-}]
+
+    }],
+
+"cloze": 
+
+    [{
+    
+    "fullText": "George Washington was the first president of the US",
+    "partial": "",
+    "cloze": "George Washington"
+    
+},
+
+{
+    
+    "fullText": "this is the second entire question",
+    "partial": "",
+    "cloze": "this"
+    
+    }]
 }
+
+
 
 
 
