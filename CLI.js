@@ -2,8 +2,10 @@ var inquirer = require("inquirer");
 var fs = require("fs");
 var cards = require('./cards.json');
 var BasicCard = require('./BasicCard');
-var i = 0;
+var questionNumber = 0;
 // var contents = fs.readFile("cards.json");
+
+
 
  inquirer.prompt([
             {
@@ -15,9 +17,7 @@ var i = 0;
             }
  ]).then(function(choice){
      if(choice.welcome === "Basic"){
-
         choseBasic();
-         
      }else{
          choseCloze();
      }
@@ -25,17 +25,16 @@ var i = 0;
 
 
 
-
-
+ 
  function choseBasic(){
     
-    if(i<cards.length){
+    if(questionNumber < cards.basic.length){
 
-        var newBasicCard = new BasicCard(cards[i].front, cards[i].back);
+        var newBasicCard = new BasicCard(cards.basic[questionNumber].front, cards.basic[questionNumber].back);
             
         inquirer.prompt([
-            
-                {
+
+               {
                 name: "question",
                 type: "input",
                 message: newBasicCard.front
@@ -44,7 +43,7 @@ var i = 0;
     ]).then(function(answer){
         if(answer.question === newBasicCard.back){
             console.log('correct!');
-            i++;
+            questionNumber++;
             choseBasic();
         }
     })
